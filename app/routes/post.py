@@ -1,15 +1,12 @@
-import os
 import requests
 from starlette import status
 from datetime import datetime
 from app.models.post import Post
 from typing import Annotated, Text, Optional
-from app.schema.post import Create_Post
 from app.models.user import User
 from requests.auth import HTTPBasicAuth
 from app.database.cofig import db_session
 from fastapi.responses import JSONResponse
-from app.middleware.firebase_auth import pyre_auth as auth
 from app.middleware.firebase_auth import verify_token
 from fastapi import APIRouter, Depends, UploadFile, File, Form
 

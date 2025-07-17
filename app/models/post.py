@@ -20,8 +20,8 @@ class Likes(Base):
 
     id = Column(Integer, primary_key= True)
     user_id = Column(Integer, ForeignKey(User.id), nullable=True)
+    post_id = Column(Integer, ForeignKey(Post.id), nullable=True)
     like = Column(Boolean, nullable=True, index=True)
-    dislike = Column(Boolean , nullable=True, index=True)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
     deleted_by = Column(String)
