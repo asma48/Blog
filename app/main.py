@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from app.routes.user import user_router
 from app.routes.post import post_router
 from app.routes.likes import likes_router
-
+from app.routes.comments import comment_router
 
 
 
@@ -16,3 +16,4 @@ def health_check():
 app.include_router(user_router, prefix= "/user", tags=["User"])
 app.include_router(post_router, prefix= "/blog", tags=["Blog"])
 app.include_router(likes_router, prefix= "/likes", tags=["Likes"])
+app.include_router(comment_router, prefix= "/comment", tags=["Comment"])

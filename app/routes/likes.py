@@ -16,10 +16,6 @@ likes_router = APIRouter()
 def likes(post_id: int,  db: db_session, current_user: Annotated[dict, Depends(verify_token)]):
 
     db_user = db.query(User).filter(User.email == current_user['email'], User.deleted_at == None).first()
-    if db_user is None:
-        return JSONResponse(content={
-        "message": "User Does not exist",
-        "status":404}, status_code=status.HTTP_404_NOT_FOUND)
     db_post = db.query(Post).filter(Post.id == post_id, Post.deleted_at == None).first()
     if db_post is None:
         return JSONResponse(content={
